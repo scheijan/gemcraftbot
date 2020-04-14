@@ -1,12 +1,15 @@
+# standard library imports
 from time import sleep
 import os
 import random
 import logging
 
+# third party imports
 import pyautogui as gui
 import pytesseract
 import cv2
 
+# project imports
 from constants import *
 
 log = logging.getLogger('main')

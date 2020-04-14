@@ -1,5 +1,8 @@
+# time to sleep after each step
 STEP = 0.1
 
+# positions of static UI elements (basically everything but the fields on the map)
+# CAUTION: all coordinates are based on fullscreen FullHD resolution (1920 × 1080 pixel) and may need to be adjusted
 STARTBUTTON = (1415, 885)
 
 BACKBUTTON = (1709, 981)

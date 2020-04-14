@@ -1,9 +1,12 @@
+# standard library imports
 from time import sleep
 from datetime import datetime
 import logging
 
+# third party imports
 import coloredlogs
 
+# project imports
 from constants import *
 from functions import *
 
