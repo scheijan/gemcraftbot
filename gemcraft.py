@@ -8,7 +8,6 @@ from constants import *
 from functions import *
 
 
-
 FIELD = (803, 277)
 CENTERFIELD = (961, 567)
 
@@ -18,7 +17,6 @@ TOWERS = [(255, 193), (495, 593), (441, 647),
 AMPLIFIERS = [(439, 591), (541, 591), (441, 699), (547, 699)]
 
 BUILDINGS = TOWERS + AMPLIFIERS
-
 
 
 log = logging.getLogger('main')
@@ -72,6 +70,7 @@ def main(run):
             sleep(10)
             break
         log.info('game is still on')
+
 
 if __name__ == '__main__':
     run = 0

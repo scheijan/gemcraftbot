@@ -78,17 +78,17 @@ def sellGem(pos):
 
 
 def sellAllGems(pos):
-	for pos in INVENTORY:
-		sellGem(pos)
+    for pos in INVENTORY:
+        sellGem(pos)
 
 
 def enrageWithGem(gemPosition):
-	gui.moveTo(*gemPosition)
-	gui.dragTo(*ENRAGESLOT)
+    gui.moveTo(*gemPosition)
+    gui.dragTo(*ENRAGESLOT)
 
 
 def enrageWithDefaultGem():
-	gui.click(*ENRAGESLOT)
+    gui.click(*ENRAGESLOT)
 
 
 def addEnhancement(pos, enhancement):
@@ -119,9 +119,9 @@ def placeDefaultGemInBuilding(building):
 
 
 def placeGemInBuilding(gem, building):
-	gui.moveTo(*gem)
-	gui.dragTo(*building)
-	sleep(STEP)
+    gui.moveTo(*gem)
+    gui.dragTo(*building)
+    sleep(STEP)
 
 
 def backToTheMap():
@@ -165,8 +165,8 @@ def startField(field, center, run, label='unknown'):
     else:
         gui.click(*center)
         gui.click(*center)
-		gui.click(*field)
-		gui.click(*field)
+        gui.click(*field)
+        gui.click(*field)
     sleep(1)
 
     # click on Start the Battle!
@@ -177,5 +177,3 @@ def startField(field, center, run, label='unknown'):
         sleep(15)
     else:
         sleep(8)
-
-
