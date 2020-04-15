@@ -144,10 +144,10 @@ def togglePause():
 
 
 def isRunning():
-    os.system('rm ~/gemcraft/screenshot*')
-    os.system('flameshot full -p ~/gemcraft/')
+    os.system('rm ~/gemcraftbot/screenshots/*')
+    os.system('flameshot full -p ~/gemcraftbot/screenshots/')
     sleep(10)
-    img = cv2.imread('screenshot.png')
+    img = cv2.imread('screenshots/screenshot.png')
     text = pytesseract.image_to_string(img)
     # log.info(text)
     words = ['Field', 'Journey', 'mode', 'highest', 'Gathered',
