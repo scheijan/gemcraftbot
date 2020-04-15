@@ -21,6 +21,13 @@ AMPLIFIERS = [(439, 591), (541, 591), (441, 699), (547, 699)]
 
 BUILDINGS = TOWERS + AMPLIFIERS
 
+# after how many gem upgrade cycles should another wave be called early?
+# set to None to disable
+NEWWAVEINTERVAL = 1
+
+# how many waves should be called each time?
+NEWWAVENUMBER = 2
+
 
 log = logging.getLogger('main')
 coloredlogs.install(level='INFO', fmt='[%(asctime)s] %(levelname)s %(message)s', datefmt='%d/%b/%Y %I:%M:%S')
@@ -65,6 +72,10 @@ def main(run):
             if building in TOWERS:
                 addRandomEnhancement(building)
             sleep(1)
+
+        if NEWWAVEINTERVAL is not None:
+            if upgradeCounter % NEWWAVEINTERVAL == 0:
+                callNextWave(NEWWAVENUMBER)
 
         if not isRunning():
             log.info('game over?')

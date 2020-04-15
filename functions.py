@@ -144,8 +144,7 @@ def togglePause():
 
 
 def callNextWave(number=1):
-    for i in range(0, number):
-        gui.press('n')
+    gui.press('n', presses=number)
 
 
 def isRunning():
