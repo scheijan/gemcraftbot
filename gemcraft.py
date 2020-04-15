@@ -23,8 +23,7 @@ BUILDINGS = TOWERS + AMPLIFIERS
 
 
 log = logging.getLogger('main')
-coloredlogs.install(
-    level='INFO', fmt='[%(asctime)s] %(levelname)s %(message)s', datefmt='%d/%b/%Y %I:%M:%S')
+coloredlogs.install(level='INFO', fmt='[%(asctime)s] %(levelname)s %(message)s', datefmt='%d/%b/%Y %I:%M:%S')
 
 
 def main(run):
