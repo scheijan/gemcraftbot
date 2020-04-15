@@ -143,6 +143,11 @@ def togglePause():
     sleep(STEP)
 
 
+def callNextWave(number=1):
+    for i in range(0, number):
+        gui.press('n')
+
+
 def isRunning():
     os.system('rm ~/gemcraftbot/screenshots/*')
     os.system('flameshot full -p ~/gemcraftbot/screenshots/')
