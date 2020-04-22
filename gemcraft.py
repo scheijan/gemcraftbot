@@ -10,40 +10,27 @@ import coloredlogs
 from constants import *
 from functions import *
 
-
-FIELD = (803, 277)
-CENTERFIELD = (961, 567)
-
-TOWERS = [(255, 193), (495, 593), (441, 647),
-          (491, 645), (547, 647), (493, 701)]
-
-AMPLIFIERS = [(439, 591), (541, 591), (441, 699), (547, 699)]
-
-BUILDINGS = TOWERS + AMPLIFIERS
-
-# after how many gem upgrade cycles should another wave be called early?
-# set to None to disable
-NEWWAVEINTERVAL = 1
-
-# how many waves should be called each time?
-NEWWAVENUMBER = 2
-
-
 log = logging.getLogger('main')
 coloredlogs.install(level='INFO', fmt='[%(asctime)s] %(levelname)s %(message)s', datefmt='%d/%b/%Y %I:%M:%S')
 
 
-def main(run):
+def main(FIELD, CENTERFIELD, TOWERS, AMPLIFIERS, LANTERNS, PYLONS, WALLS, NEWWAVEINTERVAL=1, NEWWAVENUMBER=2, run=1):
+    BUILDINGS = TOWERS + AMPLIFIERS
     log.info('starting run %s at %s' % (run, datetime.now()))
 
     startField(FIELD, CENTERFIELD, run)
 
-    # build 4 amps
+    # build walls
+    log.info('building %s walls' % len(WALLS))
+    for wall in WALLS:
+        buildWall(wall)
+
+    # build amps
     log.info('building %s amplifier' % len(AMPLIFIERS))
     for amp in AMPLIFIERS:
         buildAmplifier(amp)
 
-    # build 5 + 1 towers
+    # build towers
     log.info('building %s towers' % len(TOWERS))
     for tower in TOWERS:
         buildTower(tower)
@@ -85,8 +72,47 @@ def main(run):
         log.info('game is still on')
 
 
-if __name__ == '__main__':
+def a1_xp():
+    FIELD = (803, 277)
+    CENTERFIELD = (961, 567)
+
+    TOWERS = [(255, 193), (495, 593), (441, 647),
+              (491, 645), (547, 647), (493, 701)]
+
+    AMPLIFIERS = [(439, 591), (541, 591), (441, 699), (547, 699)]
+
+    # after how many gem upgrade cycles should another wave be called early?
+    # set to None to disable
+    NEWWAVEINTERVAL = 1
+
+    # how many waves should be called each time?
+    NEWWAVENUMBER = 2
     run = 0
     while True:
         run += 1
-        main(run)
+        main(FIELD, CENTERFIELD, TOWERS, AMPLIFIERS, [], [], [], NEWWAVEINTERVAL, NEWWAVENUMBER, run)
+
+
+def a1_fragments():
+    FIELD = (803, 277)
+    CENTERFIELD = (961, 567)
+
+    TOWERS = [(255, 193), (495, 593), (441, 647),
+              (491, 645), (547, 647), (493, 701)]
+
+    AMPLIFIERS = [(439, 591), (541, 591), (441, 699), (547, 699)]
+
+    # after how many gem upgrade cycles should another wave be called early?
+    # set to None to disable
+    NEWWAVEINTERVAL = 1
+
+    # how many waves should be called each time?
+    NEWWAVENUMBER = 2
+    run = 0
+    while True:
+        run += 1
+        main(FIELD, CENTERFIELD, TOWERS, AMPLIFIERS, NEWWAVEINTERVAL, NEWWAVENUMBER, run)
+
+
+if __name__ == '__main__':
+    a1_xp()
